@@ -1,12 +1,12 @@
 public class Vetor {
-    private Aluno[] alunos = new Aluno[100];
+    private Object[] objetos = new Object[100];
 
-    private int totalDeAlunos = 0;
+    private int totalDeObjetos = 0;
 
-    public void adiciona(Aluno aluno) {
+    public void adiciona(Object objeto) {
         this.garantaEspaco();
-        this.alunos[this.totalDeAlunos] = aluno;
-        this.totalDeAlunos++;
+        this.objetos[this.totalDeObjetos] = objeto;
+        this.totalDeObjetos++;
     }
 
     public void adiciona(int posicao, Aluno aluno){
@@ -15,15 +15,15 @@ public class Vetor {
             throw new IllegalArgumentException("Posição inválida!");
         }
 
-        for (int i = this.totalDeAlunos - 1; i >= posicao ; i -= 1) {
-            this.alunos[i + 1] = this.alunos[i];
+        for (int i = this.totalDeObjetos - 1; i >= posicao ; i -= 1) {
+            this.objetos[i + 1] = this.objetos[i];
         }
-        this.alunos[posicao] = aluno;
-        this.totalDeAlunos++;
+        this.objetos[posicao] = aluno;
+        this.totalDeObjetos++;
     }
 
     public int getTotalDeAlunos(){
-        return totalDeAlunos;
+        return totalDeObjetos;
     }
 
     public void adicionaPosicao(int posicao, Aluno aluno){
@@ -31,36 +31,36 @@ public class Vetor {
 
     }
 
-    public Aluno pega(int posicao){
+    public Object pega(int posicao){
         if (!posicaoOcupada(posicao)) {
             throw new IllegalArgumentException("Posição inválida!");
         }
-        return this.alunos[posicao];
+        return this.objetos[posicao];
     }
 
     private boolean posicaoOcupada(int posicao){
         //return posicao >= 0 && posicao < this.totalDeAlunos;
-        return posicao < this.alunos.length && posicao >= 0;
+        return posicao < this.objetos.length && posicao >= 0;
 
     }
 
     private boolean posicaoValida(int posicao) {
-        return posicao >= 0 && posicao <= this.totalDeAlunos;
+        return posicao >= 0 && posicao <= this.totalDeObjetos;
     }
 
     public void remove(int posicao){
         if (!this.posicaoOcupada(posicao)) {
             throw new IllegalArgumentException("Posição inválida!");
         }
-        for (int i = posicao; i < this.totalDeAlunos - 1; i++) {
-            this.alunos[i] = this.alunos[i + 1];
+        for (int i = posicao; i < this.totalDeObjetos - 1; i++) {
+            this.objetos[i] = this.objetos[i + 1];
         }
-        this.totalDeAlunos--;
+        this.totalDeObjetos--;
     }
 
-    public  boolean contem(String aluno){
-        for (int i = 0; i < this.totalDeAlunos; i++) {
-            if (aluno.toLowerCase().equals(this.alunos[i].getNome().toLowerCase())) {
+    public  boolean contem(Object aluno){
+        for (int i = 0; i < this.totalDeObjetos; i++) {
+            if (aluno.equals(this.objetos[i])) {
                 return true;
             }
         }
@@ -68,20 +68,20 @@ public class Vetor {
     }
 
     public int tamanho(){
-        return this.totalDeAlunos;
+        return this.totalDeObjetos;
     }
 
     public String toString() {
-        if (this.totalDeAlunos == 0) {
+        if (this.totalDeObjetos == 0) {
             return "[]";
         }
 
         StringBuilder builder = new StringBuilder();
         builder.append("[");
 
-        for (int i = 0; i <= totalDeAlunos - 1; i++) {
-            builder.append(this.alunos[i]);
-            if (i < totalDeAlunos - 1) {
+        for (int i = 0; i <= totalDeObjetos - 1; i++) {
+            builder.append(this.objetos[i]);
+            if (i < totalDeObjetos - 1) {
                 builder.append(", ");
             }
         }
@@ -90,12 +90,12 @@ public class Vetor {
     }
 
     private void garantaEspaco() {
-        if (this.totalDeAlunos == this.alunos.length) {
-            Aluno[] novaArray = new Aluno[this.alunos.length * 2];
-            for (int i = 0; i < this.alunos.length; i++) {
-                novaArray[i] = this.alunos[i];
+        if (this.totalDeObjetos == this.objetos.length) {
+            Object[] novaArray = new Object[this.objetos.length * 2];
+            for (int i = 0; i < this.objetos.length; i++) {
+                novaArray[i] = this.objetos[i];
             }
-            this.alunos = novaArray;
+            this.objetos = novaArray;
         }
     }
 
