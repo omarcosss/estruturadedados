@@ -1,4 +1,4 @@
-import java.util.Scanner;
+package cap3e4;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -63,21 +63,6 @@ public class Main {
 
 
 
-
-
-
-//        Scanner scanner = new Scanner(System.in);
-//
-//        System.out.println("Buscar aluno: ");
-//        String busca = scanner.nextLine();
-//
-//
-//
-//        if (lista.contem(busca)) {
-//            System.out.println("ALUNO ENCONTRADO: " + busca.toUpperCase() + "POSIÇÃO: " + );
-//        } else {
-//            System.out.println("Aluno não encontrado!");
-//        }
 
     }
 }
