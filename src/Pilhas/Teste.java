@@ -2,19 +2,22 @@ package Pilhas;
 
 public class Teste {
     public static void main(String[] args) {
-        Pilha<Peca> pilha = new Pilha<Peca>();
+        Pilha pilha = new Pilha();
 
-        Peca peca = new Peca();
-        pilha.inserir(peca);
+        Peca pecaInserir = new Peca();
+        pecaInserir.setNome("teste");
+
+        Peca peca2 = new Peca();
+        peca2.setNome("teste2");
+
+        pilha.inserir(pecaInserir);
+        pilha.inserir(peca2);
+
+        pilha.imprimirPilha();
 
         if (pilha.vazia()) {
             System.out.println("Pilha vazia");
         }
 
-        Pilha<String> pilha2 = new Pilha<String>();
-        pilha2.inserir("adalberto");
-        pilha2.inserir("aaaaa");
-
-        pilha2.toString();
     }
 }

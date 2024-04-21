@@ -3,28 +3,30 @@ package Pilhas;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Pilha<T> {
-    private List<T> objetos = new LinkedList<T>();
-    public void inserir(T t) {
-        this.objetos.add(t);
+public class Pilha {
+
+    private List<Peca> pecas = new LinkedList<Peca>();
+
+    public void inserir(Peca peca) {
+        this.pecas.add(peca);
     }
 
-    public T remover() {
-        return this.objetos.remove(this.objetos.size() - 1);
+    public Peca remove() {
+        return this.pecas.remove(this.pecas.size() - 1);
     }
 
     public boolean vazia() {
-        return this.objetos.size() == 0;
+        return this.pecas.isEmpty();
     }
 
-//    public String toString() {
-//        StringBuilder build = new StringBuilder();
-//        build.append("[\n");
-//
-//        for (int i = 0; i < objetos.size(); i++) {
-//            build.append(objetos[i]);
-//        }
-//
-//        return build;
-//    }
+    public void imprimirPilha() {
+        for (int i = 0; i < pecas.size(); i++) {
+            System.out.println(pecas.get(i).getNome());
+        }
+    }
+
+    public void imprimirPeca(int i){
+        System.out.println(pecas.get(i).getNome());
+    }
+
 }
